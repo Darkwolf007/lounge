@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Voxel360</title>
+        <link rel="icon" type="image/png" href="favicon.ico"/>
+        <meta name="description" content="3D Application">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
+        <script type="text/javascript" src="js/webxr.js"></script>
+        <script type="text/javascript" src="js/joystick.js"></script>
+        <script type="text/javascript" src="js/camera-cube-env.js"></script>
+        
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body onload="init();">
+        <a-scene   shadow="type: basic; autoUpdate: false;">
+            <!-- Assets -->
+            <a-assets>
+				<a-asset-item id="beanbag" src="./assets/beanbag.gltf"></a-asset-item>
+				<a-asset-item id="BezierCurve_Mesh.001" src="./assets/BezierCurve_Mesh.001.gltf"></a-asset-item>
+				<a-asset-item id="boards_Cube.005" src="./assets/boards_Cube.005.gltf"></a-asset-item>
+				<a-asset-item id="books_Plane.011" src="./assets/books_Plane.011.gltf"></a-asset-item>
+				<a-asset-item id="ceiling_Cube.004" src="./assets/ceiling_Cube.004.gltf"></a-asset-item>
+				<a-asset-item id="cushion_Cube.006" src="./assets/cushion_Cube.006.gltf"></a-asset-item>
+				<a-asset-item id="decoration_twig_branch.001_Plane.001" src="./assets/decoration_twig_branch.001_Plane.001.gltf"></a-asset-item>
+				<a-asset-item id="decoration_twig_vase_Circle.001" src="./assets/decoration_twig_vase_Circle.001.gltf"></a-asset-item>
+				<a-asset-item id="floor_Cube.003" src="./assets/floor_Cube.003.gltf"></a-asset-item>
+				<a-asset-item id="pillows.001_tokyo_bed_cushion.001" src="./assets/pillows.001_tokyo_bed_cushion.001.gltf"></a-asset-item>
+				<a-asset-item id="pillows.002_tokyo_bed_cushion.002" src="./assets/pillows.002_tokyo_bed_cushion.002.gltf"></a-asset-item>
+				<a-asset-item id="pillows_tokyo_bed_cushion.000" src="./assets/pillows_tokyo_bed_cushion.000.gltf"></a-asset-item>
+				<a-asset-item id="Plane" src="./assets/Plane.gltf"></a-asset-item>
+				<a-asset-item id="shelves_Cube.001" src="./assets/shelves_Cube.001.gltf"></a-asset-item>
+				<a-asset-item id="walls_Cube" src="./assets/walls_Cube.gltf"></a-asset-item>
+				<a-asset-item id="window_Cube.002" src="./assets/window_Cube.002.gltf"></a-asset-item>
+                <img id="sky"                 src="./resources/sky.jpg">
+                <img id="icon-play"           src="./resources/play.png">
+                <img id="icon-pause"          src="./resources/pause.png">
+                <img id="icon-play-skip-back" src="./resources/play-skip-back.png">
+                <img id="icon-mute"           src="./resources/mute.png">
+                <img id="icon-volume-low"     src="./resources/volume-low.png">
+                <img id="icon-volume-high"    src="./resources/volume-high.png">
+            </a-assets>
+
+            <!-- Entities -->
+            
+			<a-entity id="#beanbag"  gltf-model="#beanbag" scale="1 1 1" position="-1.0422455072402954 0.5006456971168518 0.5265136957168579" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#BezierCurve_Mesh.001"  gltf-model="#BezierCurve_Mesh.001" scale="1 1 1" position="-0.09652043879032135 0.5240490436553955 -0.6259002089500427" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#boards_Cube.005"  gltf-model="#boards_Cube.005" scale="1 1 1" position="2.1855036891338386e-07 0.08339116722345352 0.9929412603378296" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#books_Plane.011"  gltf-model="#books_Plane.011" scale="1 1 1" position="-1.1795432567596436 1.476465106010437 -0.614823579788208" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#ceiling_Cube.004"  gltf-model="#ceiling_Cube.004" scale="1 1 1" position="-4.5106219204171794e-08 2.72052001953125 0.27499955892562866" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#cushion_Cube.006"  gltf-model="#cushion_Cube.006" scale="1 1 1" position="-5.413199488657483e-08 0.457949697971344 -0.6875876188278198" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#decoration_twig_branch.001_Plane.001"  gltf-model="#decoration_twig_branch.001_Plane.001" scale="1 1 1" position="1.2332093715667725 0.9401324987411499 0.16106101870536804" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#decoration_twig_vase_Circle.001"  gltf-model="#decoration_twig_vase_Circle.001" scale="1 1 1" position="1.1978026628494263 0.132676899433136 0.1268700808286667" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#floor_Cube.003"  gltf-model="#floor_Cube.003" scale="1 1 1" position="2.384185791015625e-07 -1.6292068494294654e-07 1.0" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#pillows.001_tokyo_bed_cushion.001"  gltf-model="#pillows.001_tokyo_bed_cushion.001" scale="1 1 1" position="-0.2717699408531189 0.5967361330986023 -0.6630255579948425" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#pillows.002_tokyo_bed_cushion.002"  gltf-model="#pillows.002_tokyo_bed_cushion.002" scale="1 1 1" position="-0.10706206411123276 0.6390424370765686 -0.6559921503067017" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#pillows_tokyo_bed_cushion.000"  gltf-model="#pillows_tokyo_bed_cushion.000" scale="1 1 1" position="0.022221118211746216 0.6671260595321655 -0.8289732336997986" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#Plane"  gltf-model="#Plane" scale="1 1 1" position="0.0 1.470818281173706 -1.3496917486190796" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#shelves_Cube.001"  gltf-model="#shelves_Cube.001" scale="1 1 1" position="3.914888679901196e-07 1.014748454093933 -0.4312632381916046" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#walls_Cube"  gltf-model="#walls_Cube" scale="1 1 1" position="2.980232238769531e-07 1.4595955610275269 -0.23754410445690155" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#window_Cube.002"  gltf-model="#window_Cube.002" scale="1 1 1" position="1.68249670196019e-07 1.486350417137146 -1.1752827167510986" visible="true" shadow="cast: false" ></a-entity>
+
+            <!-- Camera -->
+            <a-entity id="player" 
+                position="0 -0.2 0" 
+                movement-controls="speed: 0.10000000149011612;">
+                <a-entity id="camera" 
+                    camera="near: 0.001" 
+                    position="0 1.7000000476837158 0" 
+                    look-controls="pointerLockEnabled: true">
+                        <a-entity id="cursor" cursor="fuse: false;" animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 50; from: 	0.1 0.1 0.1; to: 1 1 1"
+                            position="0 0 -0.1"
+                            geometry="primitive: circle; radius: 0.001;"
+                            material="color: #CCC; shader: flat;"
+                            >
+                        </a-entity>
+                </a-entity>
+                    <a-entity id="leftHand" oculus-touch-controls="hand: left" vive-controls="hand: left"></a-entity>
+					<a-entity id="rightHand" laser-controls oculus-touch-controls="hand: right" vive-controls="hand: right" ></a-entity>
+            </a-entity>
+
+            <!-- Lights -->
+            <a-entity light="intensity: 1.0; castShadow: false; shadowBias: -0.001; shadowCameraFar: 501.02; shadowCameraBottom: 12; shadowCameraFov: 101.79; shadowCameraNear: 0; shadowCameraTop: -5; shadowCameraRight: 10; shadowCameraLeft: -10; shadowRadius: 2" position="1.36586 7.17965 1"></a-entity>
+            <a-entity light="type: ambient; intensity: 1.0"></a-entity>
+
+            <!-- Sky -->
+            <a-sky color="#ECECEC"></a-sky>
+        </a-scene>
+    </body>
+</html>
+
